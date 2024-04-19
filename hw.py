@@ -8,6 +8,9 @@ count_unique_elements([1, 2, 3, 1, 2, 4, 5, 4]) -> 5
 """
 
 def count_unique_elements(my_list: list) -> int:
+    new_set = set(my_list)
+    length = len(new_set)
+    return length
     pass
 
 """
@@ -20,6 +23,11 @@ remove_duplicates([1, 2, 3, 1, 2, 4, 5, 4]) -> [1, 2, 3, 4, 5]
 """
 
 def remove_duplicates(my_list: list) -> list:
+    new_list = []
+    for x in my_list:
+        if x not in new_list:
+            new_list.append(x)
+    return new_list    
     pass
 
 """
@@ -32,6 +40,7 @@ reverse_list([1, 2, 3, 4, 5]) -> [5, 4, 3, 2, 1]
 """
 
 def reverse_list(my_list: list) -> list:
+    return my_list[::-1]
     pass
 
 """
@@ -44,6 +53,11 @@ max_value([1, 2, 3, 4, 5]) -> 5
 """
 
 def max_value(my_list: list) -> int:
+    max = my_list[0]
+    for value in my_list:
+        if value >= max:
+            max = value
+    return max
     pass
 
 """
@@ -56,6 +70,11 @@ min_value([1, 2, 3, 4, 5]) -> 1
 """
 
 def min_value(my_list: list) -> int:
+    min = my_list[0]
+    for value in my_list:
+        if value <= min:
+            min = value
+    return min
     pass
 
 """
@@ -68,6 +87,10 @@ sum_values([1, 2, 3, 4, 5]) -> 15
 """
 
 def sum_values(my_list: list) -> int:
+    sum  = 0
+    for value in my_list:
+        sum = sum + value
+    return sum
     pass
 
 """
@@ -80,6 +103,10 @@ average([1, 2, 3, 4, 5]) -> 3.0
 """
 
 def average(my_list: list) -> float:
+    sum = 0
+    for value in my_list:
+        sum = sum + value
+    return sum/len(my_list)    
     pass
 
 """
@@ -94,6 +121,12 @@ find_index([1, 2, 3, 4, 5], 6) -> -1
 """
 
 def find_index(my_list: list, element: int) -> int:
+    index = 0
+    for value in my_list:
+        if element == value:
+            return index
+        index += 1
+    return -1
     pass
 
 """
@@ -109,6 +142,11 @@ is_sorted([1, 3, 2, 4, 5]) -> False
 """
 
 def is_sorted(my_list: list) -> bool:
+    for i in range(len(my_list)-1):
+        if my_list[i]>my_list[i+1]:
+            return False
+            break
+    return True
     pass
 
 """
@@ -122,6 +160,11 @@ count_frequency([1, 2, 3, 4, 5, 1, 2, 3], 3) -> 2
 """
 
 def count_frequency(my_list: list, element: int) -> int:
+    times = 0
+    for value in my_list:
+        if element == value:
+            times += 1
+    return times
     pass
 
 """
