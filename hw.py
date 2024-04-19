@@ -178,6 +178,7 @@ find_mode([1, 2, 3, 4, 5, 1, 2, 2, 3]) -> 2
 """
 
 def find_mode(my_list: list) -> int:
+    return max(set(my_list), key = my_list.count, default = None)
     pass
 
 """
@@ -191,6 +192,9 @@ remove_all([1, 2, 3, 4, 5, 1, 2, 3], 3) -> [1, 2, 4, 5, 1, 2]
 """
 
 def remove_all(my_list: list, element: int) -> list:
+    for i in range(my_list.count(element)):
+        my_list.remove(element)
+    return my_list
     pass
 
 """
@@ -203,6 +207,17 @@ rotate_left([1, 2, 3, 4, 5], 2) -> [3, 4, 5, 1, 2]
 """
 
 def rotate_left(my_list: list, k: int) -> list:
+    if not my_list:
+        return my_list
+    else:   
+        s = 0
+        for i in range(k):
+            s = my_list[0]
+            for j in range(len(my_list)-1):
+                my_list[j] = my_list[j+1]
+            my_list[-1] = s
+        return my_list
+    return my_list
     pass
 
 """
@@ -216,6 +231,9 @@ rotate_right([1, 2, 3, 4, 5], 2) -> [4, 5, 1, 2, 3]
 """
 
 def rotate_right(my_list: list, k: int) -> list:
+    rev_list = my_list[::-1]
+    rotate_left(rev_list, k)
+    return rev_list[::-1]
     pass
 
 """
@@ -228,6 +246,7 @@ find_intersection([1, 2, 3, 4], [3, 4, 5, 6]) -> [3, 4]
 """
 
 def find_intersection(list1: list, list2: list) -> list:
+    return list(set(list1) & set(list2))
     pass
 
 """
@@ -241,6 +260,7 @@ find_union([1, 2, 3, 4], [3, 4, 5, 6]) -> [1, 2, 3, 4, 5, 6]
 """
 
 def find_union(list1: list, list2: list) -> list:
+    return list(set(list1) | set(list2))
     pass
 
 """
@@ -255,4 +275,7 @@ find_difference([1, 2, 3, 4], [3, 4, 5, 6]) -> [1, 2]
 """
 
 def find_difference(list1: list, list2: list) -> list:
+    s = set(list2)
+    list3 = [x for x in list1 if x not in s]
+    return list3
     pass

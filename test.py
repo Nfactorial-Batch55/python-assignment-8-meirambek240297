@@ -1,16 +1,10 @@
-def is_sorted(my_list: list) -> bool:
-    for i in range(len(my_list)-1):
-        if my_list[i]>my_list[i+1]:
-            return False
-            break
-    return True
-    
-    
-    
-    
-    
-print(is_sorted([1, 2, 3, 4, 5]))
-print(is_sorted([1, 3, 2, 4, 5]))
-print(is_sorted([]))
-print(is_sorted([1]))
-print(is_sorted([-1, -1, 0, 1, 2]))
+def rotate_left(my_list: list, k: int) -> list:
+    s = 0
+    for i in range(k):
+        s = my_list[0]
+        for j in range(len(my_list)-1):
+            my_list[j] = my_list[j+1]
+        my_list[-1] = s  
+    return my_list
+
+print(rotate_left([1, 2, 3, 4, 5], 2))
