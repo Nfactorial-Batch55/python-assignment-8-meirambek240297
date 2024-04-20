@@ -1,10 +1,21 @@
-def rotate_left(my_list: list, k: int) -> list:
-    s = 0
-    for i in range(k):
-        s = my_list[0]
-        for j in range(len(my_list)-1):
-            my_list[j] = my_list[j+1]
-        my_list[-1] = s  
-    return my_list
+from collections import defaultdict
+ 
+def group_anagrams(words: list[str]) -> list[list[str]]:
+    # printing original list
+    print("The original list : " + str(words))
+ 
+    # using defaultdict() + sorted() + values()
+    # Grouping Anagrams
+    temp = defaultdict(list)
+    for ele in words:
+        temp[str(sorted(ele))].append(ele)
+    res = list(temp.values())
+    return res
+ 
+# print result
+    #print("The grouped Anagrams : " + str(res))
+   
+print(group_anagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']))
 
-print(rotate_left([1, 2, 3, 4, 5], 2))
+# initializing list
+#test_list = ['lump', 'eat',  'me',  'tea', 'em', 'plum']
